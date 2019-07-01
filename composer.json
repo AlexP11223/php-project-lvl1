@@ -1,0 +1,11 @@
+{
+    "name": "alexp11223/brain-games",
+    "description": "hexlet.io project 1",
+    "authors": [
+        {
+            "name": "Alex P",
+            "email": "alex.pantec@gmail.com"
+        }
+    ],
+    "require": {}
+}
