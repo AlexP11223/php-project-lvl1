@@ -1,6 +1,7 @@
 {
     "name": "alexp11223/brain-games",
     "description": "hexlet.io project 1",
+    "license": "MIT",
     "authors": [
         {
             "name": "Alex P",
