@@ -8,6 +8,9 @@
             "email": "alex.pantec@gmail.com"
         }
     ],
+    "scripts": {
+        "phpcs": "phpcs"
+    },
     "autoload": {
         "psr-4": {
             "Php\\Package\\": "src",
@@ -19,5 +22,8 @@
     },
     "bin": [
         "bin/brain-games"
-      ]
+      ],
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.4"
+    }
 }
