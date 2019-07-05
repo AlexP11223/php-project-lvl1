@@ -2,3 +2,5 @@
 [![Build Status](https://travis-ci.org/AlexP11223/php-project-lvl1.svg?branch=master)](https://travis-ci.org/AlexP11223/php-project-lvl1)
 
 https://asciinema.org/a/CYEGceOppeD75CqEEE7n9kLcU
+
+https://asciinema.org/a/jK1FEbONWyksnCWoj0aSyoWuF
