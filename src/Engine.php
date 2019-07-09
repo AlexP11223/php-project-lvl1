@@ -9,6 +9,7 @@ function run(string $gameName, callable $print, callable $prompt)
     $games = [
         'even' => \BrainGames\Games\Even\make(),
         'calc' => \BrainGames\Games\Calc\make(),
+        'gcd' => \BrainGames\Games\Gcd\make(),
     ];
 
     $game = null;
