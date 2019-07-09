@@ -5,9 +5,14 @@ namespace BrainGames\Games\Even;
 const MIN_NUMBER = 1;
 const MAX_NUMBER = 99;
 
+function isEven(int $num)
+{
+    return $num % 2 == 0;
+}
+
 function getCorrectAnswer(int $num)
 {
-    return $num % 2 == 0 ? 'yes' : 'no';
+    return isEven($num) ? 'yes' : 'no';
 }
 
 function make()
