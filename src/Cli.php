@@ -3,26 +3,19 @@
 namespace BrainGames\Cli;
 
 use function \cli\line;
-use function cli\prompt;
-
-function promptName(): string
-{
-    $name = prompt('May I have your name?', false, ' ');
-    line("Hello, %s!", $name);
-    line();
-    return $name;
-}
+use function \cli\prompt;
 
 function run(string $game = '')
 {
     line('Welcome to the Brain Game!');
 
-    switch ($game) {
-        case 'even':
-            \BrainGames\Games\Even\run();
-            break;
-        default:
-            promptName();
-            break;
-    }
+    \BrainGames\Engine\run(
+        $game,
+        function (string $text = '') {
+            line($text);
+        },
+        function (string $text = '', $default = false, string $marker = ': ') {
+            return prompt($text, $default, $marker);
+        }
+    );
 }
