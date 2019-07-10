@@ -1,6 +1,9 @@
 {
     "name": "alexp11223/brain-games",
     "description": "hexlet.io project 1",
+    "keywords": ["game", "education"],
+    "homepage": "https://github.com/AlexP11223/php-project-lvl1",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -25,6 +28,9 @@
     "require": {
         "wp-cli/php-cli-tools": "^0.11.11"
     },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.4"
+    },
     "bin": [
         "bin/brain-games",
         "bin/brain-even",
@@ -32,8 +38,5 @@
         "bin/brain-gcd",
         "bin/brain-progression",
         "bin/brain-prime"
-    ],
-    "require-dev": {
-        "squizlabs/php_codesniffer": "^3.4"
-    }
+    ]
 }
