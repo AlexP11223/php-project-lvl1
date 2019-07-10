@@ -2,7 +2,32 @@
 
 namespace BrainGames\Engine;
 
-const MAX_CORRECT_ANSWERS_COUNT = 3;
+const MAX_ROUNDS_COUNT = 3;
+
+const GAME_RESULT_LOST = 0;
+const GAME_RESULT_WON = 1;
+
+function runRounds(callable $gameIterationGenerator, callable $print, callable $prompt, int $roundIndex = 0)
+{
+    if ($roundIndex >= MAX_ROUNDS_COUNT) {
+        return GAME_RESULT_WON;
+    }
+
+    ['question' => $question, 'answer' => $correctAnswer] = $gameIterationGenerator();
+
+    $print("Question: ${question}");
+
+    $answer = $prompt('Your answer');
+
+    if ($correctAnswer !== $answer) {
+        $print("'${answer}' is the wrong answer ;(. The correct answer was '${correctAnswer}'.");
+        return GAME_RESULT_LOST;
+    }
+
+    $print('Correct!');
+
+    return runRounds($gameIterationGenerator, $print, $prompt, $roundIndex + 1);
+}
 
 function run($game, callable $print, callable $prompt)
 {
@@ -23,25 +48,11 @@ function run($game, callable $print, callable $prompt)
 
     $print();
 
-    $correctAnswersCount = 0;
-    while (true) {
-        ['question' => $question, 'answer' => $correctAnswer] = $game['iteration']();
+    $gameResult = runRounds($game['iteration'], $print, $prompt);
 
-        $print("Question: ${question}");
-
-        $answer = $prompt('Your answer');
-
-        if ($correctAnswer === $answer) {
-            $print('Correct!');
-            $correctAnswersCount++;
-
-            if ($correctAnswersCount === MAX_CORRECT_ANSWERS_COUNT) {
-                $print("Congratulations, ${userName}!");
-                break;
-            }
-        } else {
-            $print("'${answer}' is the wrong answer ;(. The correct answer was '${correctAnswer}'.");
+    switch ($gameResult) {
+        case GAME_RESULT_WON:
+            $print("Congratulations, ${userName}!");
             break;
-        }
     }
 }
