@@ -11,6 +11,7 @@ function run(string $gameName, callable $print, callable $prompt)
         'calc' => \BrainGames\Games\Calc\make(),
         'gcd' => \BrainGames\Games\Gcd\make(),
         'progression' => \BrainGames\Games\Progression\make(),
+        'prime' => \BrainGames\Games\Prime\make(),
     ];
 
     $game = null;
