@@ -6,7 +6,7 @@ const MAX_CORRECT_ANSWERS_COUNT = 3;
 
 function run($game, callable $print, callable $prompt)
 {
-    print_r('Welcome to the Brain Game!');
+    $print('Welcome to the Brain Game!');
 
     if ($game) {
         $print($game['description']);
