@@ -5,9 +5,17 @@ namespace BrainGames\Cli;
 use function \cli\line;
 use function \cli\prompt;
 
-function run(string $game = '')
+function run(string $gameName = '')
 {
-    line('Welcome to the Brain Game!');
+    $games = [
+        'even' => \BrainGames\Games\Even\make(),
+        'calc' => \BrainGames\Games\Calc\make(),
+        'gcd' => \BrainGames\Games\Gcd\make(),
+        'progression' => \BrainGames\Games\Progression\make(),
+        'prime' => \BrainGames\Games\Prime\make(),
+    ];
+
+    $game = array_key_exists($gameName, $games) ? $games[$gameName] : null;
 
     \BrainGames\Engine\run(
         $game,

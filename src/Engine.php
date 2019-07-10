@@ -4,20 +4,9 @@ namespace BrainGames\Engine;
 
 const MAX_CORRECT_ANSWERS_COUNT = 3;
 
-function run(string $gameName, callable $print, callable $prompt)
+function run($game, callable $print, callable $prompt)
 {
-    $games = [
-        'even' => \BrainGames\Games\Even\make(),
-        'calc' => \BrainGames\Games\Calc\make(),
-        'gcd' => \BrainGames\Games\Gcd\make(),
-        'progression' => \BrainGames\Games\Progression\make(),
-        'prime' => \BrainGames\Games\Prime\make(),
-    ];
-
-    $game = null;
-    if (array_key_exists($gameName, $games)) {
-        $game = $games[$gameName];
-    }
+    print_r('Welcome to the Brain Game!');
 
     if ($game) {
         $print($game['description']);
