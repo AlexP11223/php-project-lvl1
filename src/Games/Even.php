@@ -18,7 +18,7 @@ function getCorrectAnswer(int $num)
 function make()
 {
     return [
-        'description' => 'Answer "yes" if a number is even, otherwise answer "no".',
+        'description' => 'Answer "yes" if given number is even, otherwise answer "no".',
         'iteration' => function () {
             $num = rand(MIN_NUMBER, MAX_NUMBER);
             return [
