@@ -3,13 +3,13 @@
 
 # Brain Games
 
-Small logic games involving arithmetical operations and number properties. Each game consists of up to 3 rounds.
+Small logic games involving basic arithmetical operations and number properties. Each game consists of up to 3 rounds.
 
 This is an educational project implemented during https://hexlet.io courses aimed at setting up the environment, getting familiar with some best practices and creating a good simple architecture.
 
 ## Installation
 
-- Install PHP 7.2+ and Composer.
+- Install PHP 7.2+ and [Composer](https://getcomposer.org/doc/00-intro.md#globally).
 - Run `composer global require alexp11223/brain-games`.
 - Make sure that the Composer global bin dir (`composer global config bin-dir --absolute`) is in your `PATH`.
 
