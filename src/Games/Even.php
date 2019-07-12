@@ -20,10 +20,10 @@ function make()
     return [
         'description' => 'Answer "yes" if given number is even, otherwise answer "no".',
         'iteration' => function () {
-            $num = rand(MIN_NUMBER, MAX_NUMBER);
+            $question = rand(MIN_NUMBER, MAX_NUMBER);
             return [
-                'question' => "${num}",
-                'answer' => getCorrectAnswer($num)
+                'question' => "${question}",
+                'answer' => getCorrectAnswer($question)
             ];
         }
     ];

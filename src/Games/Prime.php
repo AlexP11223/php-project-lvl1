@@ -40,12 +40,12 @@ function make()
         'description' => 'Answer "yes" if given number is prime, otherwise answer "no".',
         'iteration' => function () {
             $isPrime = rand_bool();
-            $num = generateNumberUntil(function ($n) use ($isPrime) {
+            $question = generateNumberUntil(function ($n) use ($isPrime) {
                 return isPrime($n) === $isPrime;
             });
             return [
-                'question' => "${num}",
-                'answer' => getCorrectAnswer($num)
+                'question' => "${question}",
+                'answer' => getCorrectAnswer($question)
             ];
         }
     ];
