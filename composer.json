@@ -16,13 +16,13 @@
     },
     "autoload": {
         "files": [
-            "src/Cli.php",
-            "src/Engine.php",
-            "src/Games/Even.php",
-            "src/Games/Calc.php",
-            "src/Games/Gcd.php",
-            "src/Games/Progression.php",
-            "src/Games/Prime.php"
+            "src/cli.php",
+            "src/engine.php",
+            "src/games/even.php",
+            "src/games/calc.php",
+            "src/games/gcd.php",
+            "src/games/progression.php",
+            "src/games/prime.php"
         ]
     },
     "require": {
