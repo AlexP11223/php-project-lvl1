@@ -13,7 +13,7 @@ This is an educational project implemented during https://hexlet.io courses aime
 - Run `composer global require alexp11223/brain-games`.
 - Make sure that the Composer global bin dir (`composer global config bin-dir --absolute`) is in your `PATH`.
 
-[![asciicast](https://asciinema.org/a/exBbIMtaJo7yNzjRWUgvneHn7.svg)](https://asciinema.org/a/exBbIMtaJo7yNzjRWUgvneHn7)
+[![asciicast](https://asciinema.org/a/QVG5NAiTP3WYnMqsQfFYyfyTL.svg)](https://asciinema.org/a/QVG5NAiTP3WYnMqsQfFYyfyTL)
 
 ## Usage
 
