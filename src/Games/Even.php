@@ -22,7 +22,7 @@ function make()
         'iteration' => function () {
             $question = rand(MIN_NUMBER, MAX_NUMBER);
             return [
-                'question' => "${question}",
+                'question' => "$question",
                 'answer' => getCorrectAnswer($question)
             ];
         }

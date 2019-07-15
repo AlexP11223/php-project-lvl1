@@ -6,9 +6,9 @@ const MIN_NUMBER = 0;
 const MAX_NUMBER = 99;
 const OPERATIONS = ['+', '-', '*'];
 
-function evaluate(int $num1, int $num2, string $op)
+function evaluate(int $num1, int $num2, string $operation)
 {
-    switch ($op) {
+    switch ($operation) {
         case '+':
             return $num1 + $num2;
         case '-':
@@ -16,7 +16,7 @@ function evaluate(int $num1, int $num2, string $op)
         case '*':
             return $num1 * $num2;
         default:
-            throw new \Exception("Unsupported operation ${op}");
+            throw new \Exception("Unsupported operation $operation");
     }
 }
 
@@ -29,7 +29,7 @@ function make()
             $num2 = rand(MIN_NUMBER, MAX_NUMBER);
             $op = OPERATIONS[array_rand(OPERATIONS)];
             return [
-                'question' => "${num1} ${op} ${num2}",
+                'question' => "$num1 $op $num2",
                 'answer' => (string) evaluate($num1, $num2, $op)
             ];
         }

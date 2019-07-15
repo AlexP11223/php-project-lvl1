@@ -24,7 +24,7 @@ function make()
         'iteration' => function () {
             [$num1, $num2] = generateNumbersWithInterestingGcd();
             return [
-                'question' => "${num1} ${num2}",
+                'question' => "$num1 $num2",
                 'answer' => (string)gcd($num1, $num2)
             ];
         }

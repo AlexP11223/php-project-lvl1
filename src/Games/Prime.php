@@ -44,7 +44,7 @@ function make()
                 return isPrime($n) === $isPrime;
             });
             return [
-                'question' => "${question}",
+                'question' => "$question",
                 'answer' => getCorrectAnswer($question)
             ];
         }
