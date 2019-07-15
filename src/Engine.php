@@ -33,18 +33,10 @@ function run($game, callable $print, callable $prompt)
 {
     $print('Welcome to the Brain Game!');
 
-    if ($game) {
-        $print($game['description']);
-    }
-
-    $print();
+    $print($game['description']);
 
     $userName = $prompt('May I have your name?', false, ' ');
     $print("Hello, ${userName}!", $userName);
-
-    if (!$game) {
-        return;
-    }
 
     $print();
 

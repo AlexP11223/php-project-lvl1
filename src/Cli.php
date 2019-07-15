@@ -5,7 +5,7 @@ namespace BrainGames\Cli;
 use function \cli\line;
 use function \cli\prompt;
 
-function run(string $gameName = '')
+function run(string $gameName)
 {
     $games = [
         'even' => \BrainGames\Games\Even\make(),
