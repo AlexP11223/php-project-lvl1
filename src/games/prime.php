@@ -18,11 +18,6 @@ function isPrime(int $num)
     return true;
 }
 
-function getCorrectAnswer(int $num)
-{
-    return isPrime($num) ? 'yes' : 'no';
-}
-
 function rand_bool()
 {
     return rand(0, 1) === 1;
@@ -43,9 +38,10 @@ function make()
             $question = generateNumberUntil(function ($n) use ($isPrime) {
                 return isPrime($n) === $isPrime;
             });
+            $correctAnswer = isPrime($question) ? 'yes' : 'no';
             return [
                 'question' => "$question",
-                'answer' => getCorrectAnswer($question)
+                'answer' => $correctAnswer
             ];
         }
     ];

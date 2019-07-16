@@ -10,20 +10,16 @@ function isEven(int $num)
     return $num % 2 == 0;
 }
 
-function getCorrectAnswer(int $num)
-{
-    return isEven($num) ? 'yes' : 'no';
-}
-
 function make()
 {
     return [
         'description' => 'Answer "yes" if given number is even, otherwise answer "no".',
         'iteration' => function () {
             $question = rand(MIN_NUMBER, MAX_NUMBER);
+            $correctAnswer = isEven($question) ? 'yes' : 'no';
             return [
                 'question' => "$question",
-                'answer' => getCorrectAnswer($question)
+                'answer' => $correctAnswer
             ];
         }
     ];
