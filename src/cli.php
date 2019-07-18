@@ -5,18 +5,8 @@ namespace Braingames\cli;
 use function \cli\line;
 use function \cli\prompt;
 
-function run(string $gameName)
+function run($game)
 {
-    $games = [
-        'even' => \BrainGames\games\even\make(),
-        'calc' => \BrainGames\games\calc\make(),
-        'gcd' => \BrainGames\games\gcd\make(),
-        'progression' => \BrainGames\games\progression\make(),
-        'prime' => \BrainGames\games\prime\make(),
-    ];
-
-    $game = array_key_exists($gameName, $games) ? $games[$gameName] : null;
-
     \Braingames\engine\run(
         $game,
         function (string $text = '') {
@@ -26,4 +16,29 @@ function run(string $gameName)
             return prompt($text, $default, $marker);
         }
     );
+}
+
+function runEven()
+{
+    run(\BrainGames\games\even\make());
+}
+
+function runCalc()
+{
+    run(\BrainGames\games\calc\make());
+}
+
+function runGcd()
+{
+    run(\BrainGames\games\gcd\make());
+}
+
+function runProgression()
+{
+    run(\BrainGames\games\progression\make());
+}
+
+function runPrime()
+{
+    run(\BrainGames\games\prime\make());
 }

@@ -2,6 +2,8 @@
 
 <?php
 
+use function Braingames\cli\runCalc;
+
 require_once __DIR__ . '/../src/bootstrap.php';
 
-\Braingames\cli\run('calc');
+runCalc();

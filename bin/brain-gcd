@@ -2,6 +2,8 @@
 
 <?php
 
+use function Braingames\cli\runGcd;
+
 require_once __DIR__ . '/../src/bootstrap.php';
 
-\Braingames\cli\run('gcd');
+runGcd();
