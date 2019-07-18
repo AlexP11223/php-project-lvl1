@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainGames\Engine;
+namespace Braingames\engine;
 
 const MAX_ROUNDS_COUNT = 3;
 

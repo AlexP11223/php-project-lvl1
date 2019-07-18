@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainGames\Cli;
+namespace Braingames\cli;
 
 use function \cli\line;
 use function \cli\prompt;
@@ -8,16 +8,16 @@ use function \cli\prompt;
 function run(string $gameName)
 {
     $games = [
-        'even' => \BrainGames\Games\Even\make(),
-        'calc' => \BrainGames\Games\Calc\make(),
-        'gcd' => \BrainGames\Games\Gcd\make(),
-        'progression' => \BrainGames\Games\Progression\make(),
-        'prime' => \BrainGames\Games\Prime\make(),
+        'even' => \BrainGames\games\even\make(),
+        'calc' => \BrainGames\games\calc\make(),
+        'gcd' => \BrainGames\games\gcd\make(),
+        'progression' => \BrainGames\games\progression\make(),
+        'prime' => \BrainGames\games\prime\make(),
     ];
 
     $game = array_key_exists($gameName, $games) ? $games[$gameName] : null;
 
-    \BrainGames\Engine\run(
+    \Braingames\engine\run(
         $game,
         function (string $text = '') {
             line($text);

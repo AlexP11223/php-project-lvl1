@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainGames\Games\Even;
+namespace BrainGames\games\even;
 
 const MIN_NUMBER = 1;
 const MAX_NUMBER = 99;

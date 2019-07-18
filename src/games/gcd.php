@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainGames\Games\Gcd;
+namespace BrainGames\games\gcd;
 
 const MIN_NUMBER = 2;
 const MAX_NUMBER = 100;

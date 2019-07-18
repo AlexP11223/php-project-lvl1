@@ -4,4 +4,4 @@
 
 require_once __DIR__ . '/../src/bootstrap.php';
 
-\BrainGames\Cli\run('progression');
+\Braingames\cli\run('progression');

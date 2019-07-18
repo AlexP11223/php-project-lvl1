@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainGames\Games\Progression;
+namespace BrainGames\games\progression;
 
 const PROGRESSION_LENGTH = 10;
 const MIN_INCREMENT = -20;

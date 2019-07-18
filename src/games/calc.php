@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainGames\Games\Calc;
+namespace BrainGames\games\calc;
 
 const MIN_NUMBER = 0;
 const MAX_NUMBER = 99;
