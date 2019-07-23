@@ -2,8 +2,8 @@
 
 <?php
 
-use function Braingames\cli\runEven;
+use function Braingames\games\even\run;
 
 require_once __DIR__ . '/../src/bootstrap.php';
 
-runEven();
+run();

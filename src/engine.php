@@ -32,11 +32,11 @@ function runRounds(callable $gameIterationGenerator, int $roundIndex = 0)
     return runRounds($gameIterationGenerator, $roundIndex + 1);
 }
 
-function run($game)
+function run(callable $gameIterationGenerator, string $description)
 {
     line('Welcome to the Brain Game!');
 
-    line($game['description']);
+    line($description);
     line();
 
     $userName = prompt('May I have your name?', false, ' ');
@@ -44,7 +44,7 @@ function run($game)
 
     line();
 
-    $gameResult = runRounds($game['iteration']);
+    $gameResult = runRounds($gameIterationGenerator);
 
     switch ($gameResult) {
         case GAME_RESULT_WON:

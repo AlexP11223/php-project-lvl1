@@ -2,8 +2,8 @@
 
 <?php
 
-use function Braingames\cli\runPrime;
+use function Braingames\games\prime\run;
 
 require_once __DIR__ . '/../src/bootstrap.php';
 
-runPrime();
+run();

@@ -2,6 +2,8 @@
 
 namespace BrainGames\games\prime;
 
+const DESCRIPTION = 'Answer "yes" if given number is prime, otherwise answer "no".';
+
 const MIN_NUMBER = 2;
 const MAX_NUMBER = 200;
 
@@ -29,20 +31,19 @@ function generateNumberUntil(int $min, int $max, callable $predicate)
     return $predicate($num) ? $num : generateNumberUntil($min, $max, $predicate);
 }
 
-function make()
+function run()
 {
-    return [
-        'description' => 'Answer "yes" if given number is prime, otherwise answer "no".',
-        'iteration' => function () {
-            $isPrime = rand_bool();
-            $question = generateNumberUntil(MIN_NUMBER, MAX_NUMBER, function ($n) use ($isPrime) {
-                return isPrime($n) === $isPrime;
-            });
-            $correctAnswer = isPrime($question) ? 'yes' : 'no';
-            return [
-                'question' => "$question",
-                'answer' => $correctAnswer
-            ];
-        }
-    ];
+    $iteration = function () {
+        $isPrime = rand_bool();
+        $question = generateNumberUntil(MIN_NUMBER, MAX_NUMBER, function ($n) use ($isPrime) {
+            return isPrime($n) === $isPrime;
+        });
+        $correctAnswer = isPrime($question) ? 'yes' : 'no';
+        return [
+            'question' => "$question",
+            'answer' => $correctAnswer
+        ];
+    };
+
+    \Braingames\engine\run($iteration, DESCRIPTION);
 }

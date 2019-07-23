@@ -2,6 +2,8 @@
 
 namespace BrainGames\games\gcd;
 
+const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
+
 const MIN_NUMBER = 2;
 const MAX_NUMBER = 100;
 
@@ -17,16 +19,15 @@ function generateNumbersWithInterestingGcd(int $min, int $max)
     return gcd($num1, $num2) === 1 ? generateNumbersWithInterestingGcd($min, $max) : [$num1, $num2];
 }
 
-function make()
+function run()
 {
-    return [
-        'description' => 'Find the greatest common divisor of given numbers.',
-        'iteration' => function () {
-            [$num1, $num2] = generateNumbersWithInterestingGcd(MIN_NUMBER, MAX_NUMBER);
-            return [
-                'question' => "$num1 $num2",
-                'answer' => (string)gcd($num1, $num2)
-            ];
-        }
-    ];
+    $iteration = function () {
+        [$num1, $num2] = generateNumbersWithInterestingGcd(MIN_NUMBER, MAX_NUMBER);
+        return [
+            'question' => "$num1 $num2",
+            'answer' => (string)gcd($num1, $num2)
+        ];
+    };
+
+    \Braingames\engine\run($iteration, DESCRIPTION);
 }

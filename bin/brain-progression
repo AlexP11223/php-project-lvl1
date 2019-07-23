@@ -2,8 +2,8 @@
 
 <?php
 
-use function Braingames\cli\runProgression;
+use function Braingames\games\progression\run;
 
 require_once __DIR__ . '/../src/bootstrap.php';
 
-runProgression();
+run();
