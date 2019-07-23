@@ -2,12 +2,15 @@
 
 namespace Braingames\engine;
 
+use function \cli\line;
+use function \cli\prompt;
+
 const MAX_ROUNDS_COUNT = 3;
 
 const GAME_RESULT_LOST = 0;
 const GAME_RESULT_WON = 1;
 
-function runRounds(callable $gameIterationGenerator, callable $print, callable $prompt, int $roundIndex = 0)
+function runRounds(callable $gameIterationGenerator, int $roundIndex = 0)
 {
     if ($roundIndex >= MAX_ROUNDS_COUNT) {
         return GAME_RESULT_WON;
@@ -15,37 +18,37 @@ function runRounds(callable $gameIterationGenerator, callable $print, callable $
 
     ['question' => $question, 'answer' => $correctAnswer] = $gameIterationGenerator();
 
-    $print("Question: ${question}");
+    line("Question: ${question}");
 
-    $answer = $prompt('Your answer');
+    $answer = prompt('Your answer');
 
     if ($correctAnswer !== $answer) {
-        $print("'${answer}' is the wrong answer ;(. The correct answer was '${correctAnswer}'.");
+        line("'${answer}' is the wrong answer ;(. The correct answer was '${correctAnswer}'.");
         return GAME_RESULT_LOST;
     }
 
-    $print('Correct!');
+    line('Correct!');
 
-    return runRounds($gameIterationGenerator, $print, $prompt, $roundIndex + 1);
+    return runRounds($gameIterationGenerator, $roundIndex + 1);
 }
 
-function run($game, callable $print, callable $prompt)
+function run($game)
 {
-    $print('Welcome to the Brain Game!');
+    line('Welcome to the Brain Game!');
 
-    $print($game['description']);
-    $print();
+    line($game['description']);
+    line();
 
-    $userName = $prompt('May I have your name?', false, ' ');
-    $print("Hello, ${userName}!", $userName);
+    $userName = prompt('May I have your name?', false, ' ');
+    line("Hello, ${userName}!", $userName);
 
-    $print();
+    line();
 
-    $gameResult = runRounds($game['iteration'], $print, $prompt);
+    $gameResult = runRounds($game['iteration']);
 
     switch ($gameResult) {
         case GAME_RESULT_WON:
-            $print("Congratulations, ${userName}!");
+            line("Congratulations, ${userName}!");
             break;
     }
 }
