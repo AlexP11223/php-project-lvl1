@@ -23,10 +23,10 @@ function rand_bool()
     return rand(0, 1) === 1;
 }
 
-function generateNumberUntil(callable $predicate)
+function generateNumberUntil(int $min, int $max, callable $predicate)
 {
-    $num = rand(MIN_NUMBER, MAX_NUMBER);
-    return $predicate($num) ? $num : generateNumberUntil($predicate);
+    $num = rand($min, $max);
+    return $predicate($num) ? $num : generateNumberUntil($min, $max, $predicate);
 }
 
 function make()
@@ -35,7 +35,7 @@ function make()
         'description' => 'Answer "yes" if given number is prime, otherwise answer "no".',
         'iteration' => function () {
             $isPrime = rand_bool();
-            $question = generateNumberUntil(function ($n) use ($isPrime) {
+            $question = generateNumberUntil(MIN_NUMBER, MAX_NUMBER, function ($n) use ($isPrime) {
                 return isPrime($n) === $isPrime;
             });
             $correctAnswer = isPrime($question) ? 'yes' : 'no';
