@@ -27,10 +27,10 @@ function make()
         'iteration' => function () {
             $num1 = rand(MIN_NUMBER, MAX_NUMBER);
             $num2 = rand(MIN_NUMBER, MAX_NUMBER);
-            $op = OPERATIONS[array_rand(OPERATIONS)];
+            $operation = OPERATIONS[array_rand(OPERATIONS)];
             return [
-                'question' => "$num1 $op $num2",
-                'answer' => (string) evaluate($num1, $num2, $op)
+                'question' => "$num1 $operation $num2",
+                'answer' => (string) evaluate($num1, $num2, $operation)
             ];
         }
     ];
