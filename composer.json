@@ -3,7 +3,7 @@
     "description": "hexlet.io project 1",
     "keywords": ["game", "education"],
     "homepage": "https://github.com/AlexP11223/php-project-lvl1",
-    "type": "library",
+    "type": "project",
     "license": "MIT",
     "authors": [
         {
