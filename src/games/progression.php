@@ -28,11 +28,11 @@ function run()
             PROGRESSION_ELEMENTS_COUNT
         );
         $missingElementIndex = array_rand($progression);
-        $missingElement = $progression[$missingElementIndex];
+        $answer = $progression[$missingElementIndex];
         $progression[$missingElementIndex] = '..';
         return [
             'question' => implode(' ', $progression),
-            'answer' => (string) $missingElement
+            'answer' => (string) $answer
         ];
     };
 
