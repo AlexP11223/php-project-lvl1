@@ -2,6 +2,8 @@
 
 namespace BrainGames\games\gcd;
 
+use function BrainGames\utils\random\generateRandomNumbersWithCondition;
+
 const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 
 const MIN_NUMBER = 2;
@@ -12,17 +14,13 @@ function gcd(int $num1, int $num2)
     return $num2 === 0 ? $num1 : gcd($num2, $num1 % $num2);
 }
 
-function generateNumbersWithInterestingGcd(int $min, int $max)
-{
-    $num1 = rand($min, $max);
-    $num2 = rand($min, $max);
-    return gcd($num1, $num2) === 1 ? generateNumbersWithInterestingGcd($min, $max) : [$num1, $num2];
-}
-
 function run()
 {
     $iteration = function () {
-        [$num1, $num2] = generateNumbersWithInterestingGcd(MIN_NUMBER, MAX_NUMBER);
+        // most numbers have GCD == 1, so we exclude such numbers to make the game more interesting
+        [$num1, $num2] = generateRandomNumbersWithCondition(MIN_NUMBER, MAX_NUMBER, function ($numbers) {
+            return gcd($numbers[0], $numbers[1]) > 1;
+        }, 2);
         return [
             'question' => "$num1 $num2",
             'answer' => (string)gcd($num1, $num2)

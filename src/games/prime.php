@@ -2,6 +2,9 @@
 
 namespace BrainGames\games\prime;
 
+use function BrainGames\utils\random\rand_bool;
+use function BrainGames\utils\random\generateRandomNumberWithCondition;
+
 const DESCRIPTION = 'Answer "yes" if given number is prime, otherwise answer "no".';
 
 const MIN_NUMBER = 2;
@@ -20,22 +23,11 @@ function isPrime(int $num)
     return true;
 }
 
-function rand_bool()
-{
-    return rand(0, 1) === 1;
-}
-
-function generateNumberUntil(int $min, int $max, callable $predicate)
-{
-    $num = rand($min, $max);
-    return $predicate($num) ? $num : generateNumberUntil($min, $max, $predicate);
-}
-
 function run()
 {
     $iteration = function () {
-        $isPrime = rand_bool();
-        $question = generateNumberUntil(MIN_NUMBER, MAX_NUMBER, function ($n) use ($isPrime) {
+        $isPrime = rand_bool(); // 50% chance of prime numbers, otherwise most numbers will be not primes
+        $question = generateRandomNumberWithCondition(MIN_NUMBER, MAX_NUMBER, function ($n) use ($isPrime) {
             return isPrime($n) === $isPrime;
         });
         $correctAnswer = isPrime($question) ? 'yes' : 'no';

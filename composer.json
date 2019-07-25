@@ -17,6 +17,7 @@
     "autoload": {
         "files": [
             "src/engine.php",
+            "src/utils/random.php",
             "src/games/even.php",
             "src/games/calc.php",
             "src/games/gcd.php",
