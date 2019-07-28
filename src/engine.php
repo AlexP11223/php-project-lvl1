@@ -19,8 +19,8 @@ function run(callable $gameIterationGenerator, string $description)
 
     line();
 
-    $runRound = function (int $roundIndex = 0) use ($gameIterationGenerator, $userName, &$runRound) {
-        if ($roundIndex >= MAX_ROUNDS_COUNT) {
+    $runRound = function (int $i) use ($gameIterationGenerator, $userName, &$runRound) {
+        if ($i >= MAX_ROUNDS_COUNT) {
             line("Congratulations, ${userName}!");
             return;
         }
@@ -38,8 +38,8 @@ function run(callable $gameIterationGenerator, string $description)
 
         line('Correct!');
 
-        $runRound($roundIndex + 1);
+        $runRound($i + 1);
     };
 
-    $runRound();
+    $runRound(0);
 }
