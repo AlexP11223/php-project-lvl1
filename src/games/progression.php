@@ -22,11 +22,9 @@ function generateProgression($start, $diff, $elementsCount)
 function run()
 {
     $iteration = function () {
-        $progression = generateProgression(
-            rand(MIN_START, MAX_START),
-            rand(MIN_DIFF, MAX_DIFF),
-            PROGRESSION_LENGTH
-        );
+        $start = rand(MIN_START, MAX_START);
+        $diff = rand(MIN_DIFF, MAX_DIFF);
+        $progression = generateProgression($start, $diff, PROGRESSION_LENGTH);
         $missingElementIndex = array_rand($progression);
         $answer = $progression[$missingElementIndex];
         $progression[$missingElementIndex] = '..';
