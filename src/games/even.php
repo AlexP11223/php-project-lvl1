@@ -14,7 +14,7 @@ function isEven(int $num)
 
 function run()
 {
-    $iteration = function () {
+    $generateRoundData = function () {
         $question = rand(MIN, MAX);
         $correctAnswer = isEven($question) ? 'yes' : 'no';
         return [
@@ -23,5 +23,5 @@ function run()
         ];
     };
 
-    \Braingames\engine\run($iteration, DESCRIPTION);
+    \Braingames\engine\run($generateRoundData, DESCRIPTION);
 }

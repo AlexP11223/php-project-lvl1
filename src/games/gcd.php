@@ -16,7 +16,7 @@ function gcd(int $num1, int $num2)
 
 function run()
 {
-    $iteration = function () {
+    $generateRoundData = function () {
         // most numbers have GCD == 1, so we exclude such numbers to make the game more interesting
         [$num1, $num2] = generateRandomNumbersWithCondition(MIN, MAX, function ($numbers) {
             return gcd($numbers[0], $numbers[1]) > 1;
@@ -27,5 +27,5 @@ function run()
         ];
     };
 
-    \Braingames\engine\run($iteration, DESCRIPTION);
+    \Braingames\engine\run($generateRoundData, DESCRIPTION);
 }

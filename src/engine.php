@@ -7,7 +7,7 @@ use function \cli\prompt;
 
 const MAX_ROUNDS_COUNT = 3;
 
-function run(callable $gameIterationGenerator, string $description)
+function run(callable $generateRoundData, string $description)
 {
     line('Welcome to the Brain Game!');
 
@@ -19,13 +19,13 @@ function run(callable $gameIterationGenerator, string $description)
 
     line();
 
-    $runRound = function (int $i) use ($gameIterationGenerator, $userName, &$runRound) {
+    $runRound = function (int $i) use ($generateRoundData, $userName, &$runRound) {
         if ($i >= MAX_ROUNDS_COUNT) {
             line("Congratulations, ${userName}!");
             return;
         }
 
-        ['question' => $question, 'answer' => $correctAnswer] = $gameIterationGenerator();
+        ['question' => $question, 'answer' => $correctAnswer] = $generateRoundData();
 
         line("Question: ${question}");
 

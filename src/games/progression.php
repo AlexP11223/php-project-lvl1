@@ -21,7 +21,7 @@ function generateProgression($start, $diff, $elementsCount)
 
 function run()
 {
-    $iteration = function () {
+    $generateRoundData = function () {
         $start = rand(MIN_START, MAX_START);
         $diff = rand(MIN_DIFF, MAX_DIFF);
         $progression = generateProgression($start, $diff, PROGRESSION_LENGTH);
@@ -34,5 +34,5 @@ function run()
         ];
     };
 
-    \Braingames\engine\run($iteration, DESCRIPTION);
+    \Braingames\engine\run($generateRoundData, DESCRIPTION);
 }

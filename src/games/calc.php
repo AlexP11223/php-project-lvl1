@@ -24,7 +24,7 @@ function evaluate(int $num1, int $num2, string $operation)
 
 function run()
 {
-    $iteration = function () {
+    $generateRoundData = function () {
         $num1 = rand(MIN, MAX);
         $num2 = rand(MIN, MAX);
         $operation = OPERATIONS[array_rand(OPERATIONS)];
@@ -34,5 +34,5 @@ function run()
         ];
     };
 
-    \Braingames\engine\run($iteration, DESCRIPTION);
+    \Braingames\engine\run($generateRoundData, DESCRIPTION);
 }
