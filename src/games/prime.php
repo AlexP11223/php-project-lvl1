@@ -7,8 +7,8 @@ use function BrainGames\utils\random\generateRandomNumberWithCondition;
 
 const DESCRIPTION = 'Answer "yes" if given number is prime, otherwise answer "no".';
 
-const MIN_NUMBER = 2;
-const MAX_NUMBER = 200;
+const MIN = 2;
+const MAX = 200;
 
 function isPrime(int $num)
 {
@@ -27,7 +27,7 @@ function run()
 {
     $iteration = function () {
         $isPrime = rand_bool(); // 50% chance of prime numbers, otherwise most numbers will be not primes
-        $question = generateRandomNumberWithCondition(MIN_NUMBER, MAX_NUMBER, function ($n) use ($isPrime) {
+        $question = generateRandomNumberWithCondition(MIN, MAX, function ($n) use ($isPrime) {
             return isPrime($n) === $isPrime;
         });
         $correctAnswer = isPrime($question) ? 'yes' : 'no';

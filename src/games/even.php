@@ -4,8 +4,8 @@ namespace BrainGames\games\even;
 
 const DESCRIPTION = 'Answer "yes" if given number is even, otherwise answer "no".';
 
-const MIN_NUMBER = 1;
-const MAX_NUMBER = 99;
+const MIN = 1;
+const MAX = 99;
 
 function isEven(int $num)
 {
@@ -15,7 +15,7 @@ function isEven(int $num)
 function run()
 {
     $iteration = function () {
-        $question = rand(MIN_NUMBER, MAX_NUMBER);
+        $question = rand(MIN, MAX);
         $correctAnswer = isEven($question) ? 'yes' : 'no';
         return [
             'question' => "$question",

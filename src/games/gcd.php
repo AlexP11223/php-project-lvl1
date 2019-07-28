@@ -6,8 +6,8 @@ use function BrainGames\utils\random\generateRandomNumbersWithCondition;
 
 const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 
-const MIN_NUMBER = 2;
-const MAX_NUMBER = 100;
+const MIN = 2;
+const MAX = 100;
 
 function gcd(int $num1, int $num2)
 {
@@ -18,7 +18,7 @@ function run()
 {
     $iteration = function () {
         // most numbers have GCD == 1, so we exclude such numbers to make the game more interesting
-        [$num1, $num2] = generateRandomNumbersWithCondition(MIN_NUMBER, MAX_NUMBER, function ($numbers) {
+        [$num1, $num2] = generateRandomNumbersWithCondition(MIN, MAX, function ($numbers) {
             return gcd($numbers[0], $numbers[1]) > 1;
         }, 2);
         return [

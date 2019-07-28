@@ -4,8 +4,8 @@ namespace BrainGames\games\calc;
 
 const DESCRIPTION = 'What is the result of the expression?';
 
-const MIN_NUMBER = 0;
-const MAX_NUMBER = 99;
+const MIN = 0;
+const MAX = 99;
 const OPERATIONS = ['+', '-', '*'];
 
 function evaluate(int $num1, int $num2, string $operation)
@@ -25,8 +25,8 @@ function evaluate(int $num1, int $num2, string $operation)
 function run()
 {
     $iteration = function () {
-        $num1 = rand(MIN_NUMBER, MAX_NUMBER);
-        $num2 = rand(MIN_NUMBER, MAX_NUMBER);
+        $num1 = rand(MIN, MAX);
+        $num2 = rand(MIN, MAX);
         $operation = OPERATIONS[array_rand(OPERATIONS)];
         return [
             'question' => "$num1 $operation $num2",
