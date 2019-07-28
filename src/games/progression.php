@@ -2,6 +2,8 @@
 
 namespace BrainGames\games\progression;
 
+use function Braingames\engine\run as runEngine;
+
 const DESCRIPTION = 'What number is missing in the progression?';
 
 const PROGRESSION_LENGTH = 10;
@@ -34,5 +36,5 @@ function run()
         ];
     };
 
-    \Braingames\engine\run($generateRoundData, DESCRIPTION);
+    runEngine($generateRoundData, DESCRIPTION);
 }

@@ -2,6 +2,8 @@
 
 namespace BrainGames\games\even;
 
+use function Braingames\engine\run as runEngine;
+
 const DESCRIPTION = 'Answer "yes" if given number is even, otherwise answer "no".';
 
 const MIN = 1;
@@ -23,5 +25,5 @@ function run()
         ];
     };
 
-    \Braingames\engine\run($generateRoundData, DESCRIPTION);
+    runEngine($generateRoundData, DESCRIPTION);
 }

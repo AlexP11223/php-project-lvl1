@@ -2,6 +2,7 @@
 
 namespace BrainGames\games\gcd;
 
+use function Braingames\engine\run as runEngine;
 use function BrainGames\utils\random\generateRandomNumbersWithCondition;
 
 const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
@@ -27,5 +28,5 @@ function run()
         ];
     };
 
-    \Braingames\engine\run($generateRoundData, DESCRIPTION);
+    runEngine($generateRoundData, DESCRIPTION);
 }

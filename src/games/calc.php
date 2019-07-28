@@ -2,6 +2,8 @@
 
 namespace BrainGames\games\calc;
 
+use function Braingames\engine\run as runEngine;
+
 const DESCRIPTION = 'What is the result of the expression?';
 
 const MIN = 0;
@@ -34,5 +36,5 @@ function run()
         ];
     };
 
-    \Braingames\engine\run($generateRoundData, DESCRIPTION);
+    runEngine($generateRoundData, DESCRIPTION);
 }

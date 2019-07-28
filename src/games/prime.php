@@ -2,6 +2,7 @@
 
 namespace BrainGames\games\prime;
 
+use function Braingames\engine\run as runEngine;
 use function BrainGames\utils\random\rand_bool;
 use function BrainGames\utils\random\generateRandomNumberWithCondition;
 
@@ -37,5 +38,5 @@ function run()
         ];
     };
 
-    \Braingames\engine\run($generateRoundData, DESCRIPTION);
+    runEngine($generateRoundData, DESCRIPTION);
 }
