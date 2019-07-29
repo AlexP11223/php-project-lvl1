@@ -24,13 +24,18 @@ function isPrime(int $num)
     return true;
 }
 
+function generateInterestingQuestion($min, $max)
+{
+    $answer = rand_bool(); // 50% chance of prime numbers, otherwise most numbers will be not primes
+    return generateRandomNumberWithCondition($min, $max, function ($n) use ($answer) {
+        return isPrime($n) === $answer;
+    });
+}
+
 function run()
 {
     $generateRoundData = function () {
-        $isPrime = rand_bool(); // 50% chance of prime numbers, otherwise most numbers will be not primes
-        $question = generateRandomNumberWithCondition(MIN, MAX, function ($n) use ($isPrime) {
-            return isPrime($n) === $isPrime;
-        });
+        $question = generateInterestingQuestion(MIN, MAX);
         $correctAnswer = isPrime($question) ? 'yes' : 'no';
         return [
             'question' => "$question",

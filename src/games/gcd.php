@@ -15,13 +15,18 @@ function gcd(int $num1, int $num2)
     return $num2 === 0 ? $num1 : gcd($num2, $num1 % $num2);
 }
 
+function generateInterestingQuestion($min, $max)
+{
+    // most numbers have GCD == 1, so we exclude such numbers to make the game more interesting
+    return generateRandomNumbersWithCondition($min, $max, function ($numbers) {
+        return gcd($numbers[0], $numbers[1]) > 1;
+    }, 2);
+}
+
 function run()
 {
     $generateRoundData = function () {
-        // most numbers have GCD == 1, so we exclude such numbers to make the game more interesting
-        [$num1, $num2] = generateRandomNumbersWithCondition(MIN, MAX, function ($numbers) {
-            return gcd($numbers[0], $numbers[1]) > 1;
-        }, 2);
+        [$num1, $num2] = generateInterestingQuestion(MIN, MAX);
         return [
             'question' => "$num1 $num2",
             'answer' => (string)gcd($num1, $num2)
